@@ -58,7 +58,7 @@ carrying out-of-band control messages.
 
 
 
-### <a name="FromConn">func</a> [FromConn](/src/target/conduit.go?s=1748:1794#L41)
+### <a name="FromConn">func</a> [FromConn](/src/target/conduit.go?s=2020:2066#L45)
 ``` go
 func FromConn(conn net.Conn) (*Conduit, error)
 ```
@@ -73,18 +73,22 @@ being created, you should be sure to call Close to avoid leaking a file
 descriptor.
 
 
-### <a name="FromFile">func</a> [FromFile](/src/target/conduit.go?s=1193:1227#L28)
+### <a name="FromFile">func</a> [FromFile](/src/target/conduit.go?s=1465:1499#L32)
 ``` go
 func FromFile(f *os.File) *Conduit
 ```
 FromFile creates a new Conduit from the provided os.File.
 
 
-### <a name="New">func</a> [New](/src/target/conduit.go?s=1039:1081#L23)
+### <a name="New">func</a> [New](/src/target/conduit.go?s=1311:1353#L27)
 ``` go
 func New(fd uintptr, name string) *Conduit
 ```
-New creates a new Conduit for the provided file descriptor fd and name.
+New creates a new Conduit. The provided file descriptor is the transport
+over which other open FDs will be transferred and thus must be capable of
+carrying out-of-band control messages. Note that this restriction is not
+enforced here but will instead cause later transfer actions to fail. The
+given name is as passed to os.NewFile.
 
 
 
