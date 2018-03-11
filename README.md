@@ -1,4 +1,5 @@
 
+[![GoDoc](https://godoc.org/toolman.org/net/conduit?status.svg)](https://godoc.org/toolman.org/net/conduit)
 
 # conduit
 `import "toolman.org/net/conduit"`
