@@ -8,6 +8,7 @@ import (
 	"os"
 
 	"toolman.org/net/conduit"
+	"toolman.org/net/conduit/examples/internal/common"
 )
 
 func main() {
@@ -17,7 +18,7 @@ func main() {
 }
 
 func run() error {
-	conn, err := net.Dial("unixpacket", "@give-get-test")
+	conn, err := net.Dial("unixpacket", common.SocketName())
 	if err != nil {
 		return err
 	}

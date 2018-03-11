@@ -4,12 +4,27 @@ import (
 	"fmt"
 	"log"
 	"net"
+	"os"
 
 	"toolman.org/net/conduit"
+	"toolman.org/net/conduit/examples/internal/common"
 )
 
+func main() {
+	if err := run(); err != nil {
+		log.Fatal(err)
+	}
+}
+
 func run() error {
-	ln, err := net.Listen("unixpacket", "@give-get-test")
+	name := common.SocketName()
+	if name[0] != '@' {
+		if err := os.Remove(name); err == nil {
+			fmt.Printf("Removed orphaned unix domain socket: %s", name)
+		}
+	}
+
+	ln, err := net.Listen("unixpacket", name)
 	if err != nil {
 		return err
 	}
@@ -43,10 +58,4 @@ func run() error {
 	fmt.Println("That is all.")
 
 	return nil
-}
-
-func main() {
-	if err := run(); err != nil {
-		log.Fatal(err)
-	}
 }
