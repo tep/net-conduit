@@ -1,0 +1,8 @@
+language: go
+
+go_import_path: toolman.org/net/conduit
+
+go:
+  - "1.8.x"
+  - "1.9.x"
+  - "1.10.x"
