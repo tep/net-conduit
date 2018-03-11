@@ -12,7 +12,7 @@
 ## Install
 
 ``` sh
-  go get toolman.org/ent/conduit
+  go get toolman.org/net/conduit
 ```
 
 
