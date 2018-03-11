@@ -24,19 +24,21 @@ func run() error {
 		}
 	}
 
-	ln, err := net.Listen("unixpacket", name)
+	ln, err := net.Listen("unix", name)
 	if err != nil {
 		return err
 	}
 	defer ln.Close()
 
-	fmt.Println("Awaiting transfer...")
+	fmt.Printf("Awaiting transfer via %q... ", name)
 
 	conn, err := ln.Accept()
 	if err != nil {
 		return err
 	}
 	defer conn.Close()
+
+	fmt.Printf("\nGot connection: %q\n", conn.RemoteAddr())
 
 	c, err := conduit.FromConn(conn)
 	if err != nil {

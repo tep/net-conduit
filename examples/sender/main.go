@@ -18,7 +18,10 @@ func main() {
 }
 
 func run() error {
-	conn, err := net.Dial("unixpacket", common.SocketName())
+	name := common.SocketName()
+	fmt.Printf("Using socket %q for Conduit\n", name)
+
+	conn, err := net.Dial("unix", name)
 	if err != nil {
 		return err
 	}
