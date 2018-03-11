@@ -29,7 +29,11 @@ func (c *Conduit) Close() error {
 	return nil
 }
 
-// New creates a new Conduit for the provided file descriptor fd and name.
+// New creates a new Conduit. The provided file descriptor is the transport
+// over which other open FDs will be transferred and thus must be capable of
+// carrying out-of-band control messages. Note that this restriction is not
+// enforced here but will instead cause later transfer actions to fail. The
+// given name is as passed to os.NewFile.
 func New(fd uintptr, name string) *Conduit {
 	return &Conduit{file: os.NewFile(fd, name)}
 }
