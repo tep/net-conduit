@@ -1,5 +1,9 @@
 language: go
 
+os:
+  - linux
+  - osx
+
 go_import_path: toolman.org/net/conduit
 
 go:
