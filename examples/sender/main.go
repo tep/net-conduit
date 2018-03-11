@@ -7,7 +7,7 @@ import (
 	"net"
 	"os"
 
-	"toolman.org/net/nettool"
+	"toolman.org/net/conduit"
 )
 
 func main() {
@@ -22,7 +22,7 @@ func run() error {
 		return err
 	}
 
-	c, err := nettool.NetConduit(conn)
+	c, err := conduit.FromConn(conn)
 	if err != nil {
 		return err
 	}
@@ -35,7 +35,7 @@ func run() error {
 	fmt.Printf("Created new pipe; sending writer (fd:%d) across Conduit\n", w.Fd())
 
 	if err := c.TransferFile(w); err != nil {
-		ce := err.(*nettool.ConduitError)
+		ce := err.(*conduit.Error)
 
 		return fmt.Errorf("%#v -- %v", ce, ce)
 	}
