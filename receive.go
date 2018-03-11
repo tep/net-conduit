@@ -13,11 +13,11 @@ import (
 // Conduit along with a nil error. If an error is returned it will be a
 // conduit.Error with its type set according to the following conditions.
 //
-// 		ErrFailedTransfer: if the message cannot be recieved.
+// 		ErrFailedTransfer: if the message cannot be received.
 //
 // 		ControlMessageError: if the control message cannot be parsed, more than
 // 		one control message is sent or more than one file descriptor is
-// 		transfered.
+// 		transferred.
 //
 func (c *Conduit) ReceiveFD() (uintptr, error) {
 	fd := int(c.file.Fd())

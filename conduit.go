@@ -1,4 +1,4 @@
-// Package conduit provides the Conduit type used for transfering open file
+// Package conduit provides the Conduit type used for transferring open file
 // descriptors between cooperating processes.
 
 package conduit // import "toolman.org/net/conduit"
@@ -8,7 +8,7 @@ import (
 	"os"
 )
 
-// A Conduit is a mechanism for transfering open file descriptors between
+// A Conduit is a mechanism for transferring open file descriptors between
 // cooperating processes. Transfers can take place over an os.File or net.Conn
 // but ultimately the transport descriptor must manifest as a socket capable of
 // carrying out-of-band control messages.

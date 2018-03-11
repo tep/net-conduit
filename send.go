@@ -8,7 +8,7 @@ import (
 )
 
 // TransferFD sends the open file descriptor fd through the Conduit. If
-// successfully transfered, fd will be closed and may no longer be used
+// successfully transferred, fd will be closed and may no longer be used
 // by the caller.  On success, nil is returned.
 //
 // If an error is returned, it will be of type conduit.Error.
@@ -25,7 +25,7 @@ func (c *Conduit) TransferFD(fd uintptr) error {
 }
 
 // TransferFile send the open file descriptor associated with f through the
-// Conduit.  If succesfully transfered, f will be closed and may no longer be
+// Conduit.  If successfully transferred, f will be closed and may no longer be
 // used by the caller.  On success, nil is returned.
 //
 // If an error is returned, it will be of type conduit.Error.
@@ -34,7 +34,7 @@ func (c *Conduit) TransferFile(f *os.File) error {
 }
 
 // TransferConn send the open file descriptor associated with conn through the
-// Conduit.  If succesfully transfered, conn will be closed and may no longer
+// Conduit.  If successfully transferred, conn will be closed and may no longer
 // be used by the caller.  Nil is returned on success.
 //
 // If conn's underlying type provides no way to discern its file descriptor,
