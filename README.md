@@ -1,5 +1,5 @@
 
-[![GoDoc](https://godoc.org/toolman.org/net/conduit?status.svg)](https://godoc.org/toolman.org/net/conduit) [![Go Report Card](https://goreportcard.com/badge/toolman.org/net/conduit)](https://goreportcard.com/report/toolman.org/net/conduit)
+[![GoDoc](https://godoc.org/toolman.org/net/conduit?status.svg)](https://godoc.org/toolman.org/net/conduit) [![Go Report Card](https://goreportcard.com/badge/toolman.org/net/conduit)](https://goreportcard.com/report/toolman.org/net/conduit) [![Build Status](https://travis-ci.org/tep/net-conduit.svg?branch=master)](https://travis-ci.org/tep/net-conduit)
 
 # conduit
 `import "toolman.org/net/conduit"`
