@@ -1,6 +1,10 @@
 // Package conduit provides the Conduit type used for transferring open file
-// descriptors between cooperating processes.
-
+// descriptors between cooperating processes. Common use cases for this
+// behavior would be to transfer ownership of an open file from one process to
+// another over a unix-domain socket, or to transfer an established network
+// connection from a child process back to its parent (likely over stdout).
+// A popular example of the latter being the ssh_config(5) directive
+// 'ProxyUseFdpass'.
 package conduit // import "toolman.org/net/conduit"
 
 import (
@@ -11,7 +15,8 @@ import (
 // A Conduit is a mechanism for transferring open file descriptors between
 // cooperating processes. Transfers can take place over an os.File or net.Conn
 // but ultimately the transport descriptor must manifest as a socket capable of
-// carrying out-of-band control messages.
+// carrying out-of-band control messages as delivered by the sendmsg(2) system
+// call.
 type Conduit struct {
 	file   *os.File
 	closer func() error
