@@ -229,14 +229,6 @@ const (
 )
 ```
 
-
-
-
-
-
-
-
-
 ## <a name="Error">type</a> [Error](/src/target/errors.go?s=956:1001#L26)
 ``` go
 type Error struct {
@@ -246,19 +238,9 @@ type Error struct {
 Error encapsulates a conduit related error providing a Type method to
 discern the type of error.
 
-
-
-
-
-
-
-
-
-
 ### <a name="Error.Type">func</a> (\*Error) [Type](/src/target/errors.go?s=1094:1124#L33)
 ``` go
 func (e *Error) Type() ErrType
 ```
 Type returns the conduit related error type indicated by the returned
 ErrType value.
-
