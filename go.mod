@@ -1,3 +1,7 @@
 module toolman.org/net/conduit
 
-require golang.org/x/sys v0.0.0-20181031143558-9b800f95dbbc
+go 1.24.0
+
+toolchain go1.24.4
+
+require golang.org/x/sys v0.38.0
